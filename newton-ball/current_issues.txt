@@ -1,0 +1,7 @@
+the ballcon script correctly moves the ball based on force applyed and considers the mass.
+still need to make it take information for the foces as a buttion instead of a text box.(should be fairly simple)
+still need to make the force change when it interacts with the next ball or the end swing collider.
+
+the if statement for starting the movement based on a bool from the start buttion does work but the controllers don't set the bool to true after collision.
+
+still need to create an actual cradle (currently just orbs and cubes for testing the scripts).
