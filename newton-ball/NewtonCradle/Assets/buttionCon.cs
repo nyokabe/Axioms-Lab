@@ -19,7 +19,6 @@ public class buttionCon : MonoBehaviour
         if (collision.gameObject == playerHR || collision.gameObject == playerHL)
         {
             activeated = true;
-            activeated = false;
         }
     }
     // Update is called once per frame

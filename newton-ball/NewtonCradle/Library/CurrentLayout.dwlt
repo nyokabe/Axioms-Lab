@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
-  controlID: 53
+  controlID: 118
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -210,8 +210,8 @@ MonoBehaviour:
     y: 0
     width: 1152
     height: 573
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 224}
+  m_MaxSize: {x: 4004, y: 4024}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -381,9 +381,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: ac3a0000
-      m_LastClickedID: 15020
-      m_ExpandedIDs: d4fbffff14380000a63a00008e3b0000fa3b0000
+      m_SelectedIDs: 763a0000
+      m_LastClickedID: 14966
+      m_ExpandedIDs: d4fbffff02380000ba3b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -439,9 +439,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.0401992, y: 1.9474058, z: 10.4882555}
+    m_Target: {x: -3.7167382, y: 3.7133253, z: 9.062285}
     speed: 2
-    m_Value: {x: 1.0401992, y: 1.9474058, z: 10.4882555}
+    m_Value: {x: -3.7167382, y: 3.7133253, z: 9.062285}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -469,13 +469,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.21383132, y: 0.08397557, z: -0.018455625, w: -0.9730795}
+    m_Target: {x: -0.009310588, y: -0.0069152643, z: 0.00006211854, w: -0.99993277}
     speed: 2
-    m_Value: {x: -0.21383132, y: 0.08397557, z: -0.018455625, w: -0.9730795}
+    m_Value: {x: -0.009310588, y: -0.0069152643, z: 0.00006211854, w: -0.99993277}
   m_Size:
-    m_Target: 17.193962
+    m_Target: 9.706259
     speed: 2
-    m_Value: 17.193962
+    m_Value: 9.706259
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -551,20 +551,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\ajd21\OneDrive\Documents\GitHub\Axioms-Lab\newton-ball\NewtonCradle
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7c2c0000
-    m_LastClickedID: 11388
-    m_ExpandedIDs: 000000007c2c00009c2e00009e3000007e32000034330000ce5f0000d05f0000d25f0000d45f000000ca9a3b
+    m_SelectedIDs: 52300000
+    m_LastClickedID: 12370
+    m_ExpandedIDs: 000000007e2c00009e2e0000a030000080320000363300001a5e00001c5e00001e5e0000205e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -592,7 +592,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007c2c00009c2e00009e3000007e32000034330000ce5f0000d05f0000d25f0000d45f0000
+    m_ExpandedIDs: 000000007e2c00009e2e0000a030000080320000363300001a5e00001c5e00001e5e0000205e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,7 +619,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
