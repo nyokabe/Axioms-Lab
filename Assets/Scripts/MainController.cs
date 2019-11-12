@@ -8,6 +8,7 @@ public class MainController : MonoBehaviour
     public bool ballRoll;
     public bool cannon;
     public bool newton;
+    
     public GameObject levelBallDrop;
     public GameObject levelBallRoll;
     public GameObject levelCannon;
