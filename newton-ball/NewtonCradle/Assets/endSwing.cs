@@ -12,14 +12,15 @@ public class endSwing : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject == endBall)
+     void OnTriggerEnter(Collider other)
+     {
+        reverse = true;
+     }
+       /* if (collision.gameObject == endBall)
         {
             reverse = true;
-        }
-    }
-    // Update is called once per frame
+        }*/
+// Update is called once per frame
     void Update()
     {
         

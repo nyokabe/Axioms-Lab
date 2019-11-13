@@ -7,7 +7,9 @@ TagManager:
   - end_swing
   - end_swing_right
   - switch
-  - ball
+  - start_ball
+  - final_ball
+  - mid_ball
   layers:
   - Default
   - TransparentFX

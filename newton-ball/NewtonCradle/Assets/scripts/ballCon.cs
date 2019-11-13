@@ -9,21 +9,21 @@ public class ballCon : MonoBehaviour
     /*public Vector3 Force;
     public Vector3 R_Force;*/
     public GameObject stoper;
-    bool endSwing = false;
-    bool stopPoint = false;
+    public bool stop;
 
     enum ModeSwitching { Start, Impulse, Acceleration, Force, VelocityChange};
     ModeSwitching m_modeSwitching;
     Vector3 m_StartPos, m_StartForce;
-    Vector3 m_NewForce;
+    public Vector3 m_NewForce;
     Rigidbody m_Rigidbody;
     Rigidbody SP;
     Rigidbody ES;
 
-    string m_ForceYString = string.Empty;
-    string m_ForceXString = string.Empty;
+   //public string m_ForceYString = string.Empty;
+   //public string m_ForceXString = string.Empty;
 
-    float m_ForceY, m_ForceX;
+    public float m_ForceY, m_ForceX;
+    public float X, Y;
     float m_Result;
     // Start is called before the first frame update
     void Start()
@@ -31,14 +31,15 @@ public class ballCon : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody>();
         m_modeSwitching = ModeSwitching.Start;
         m_NewForce = new Vector3(0, 0, 0);
-        m_ForceX = 0;
-        m_ForceY = 0;
-        m_ForceXString = "1";
-        m_ForceYString = "1";
+        m_ForceX = 1;
+        m_ForceY = 1;
+        X = m_ForceX;
+        Y = m_ForceY;
         m_StartPos = transform.position;
         m_StartForce = m_Rigidbody.transform.position;
         SP = stoper.GetComponent<Rigidbody>();
         ES = endSwingR.GetComponent<Rigidbody>();
+        stop = true;
 
     }
 
@@ -56,10 +57,7 @@ public class ballCon : MonoBehaviour
                 m_Rigidbody.velocity = new Vector3(0f, 0f, 0f);
                 break;
 
-            case ModeSwitching.Acceleration:
-                MakeCustomForce();
-                m_Rigidbody.AddForce(m_NewForce, ForceMode.Acceleration);
-                break;
+           
 
             case ModeSwitching.Force:
                // if (endSwingR.GetComponent<endSwing>().reverse == false)
@@ -72,10 +70,7 @@ public class ballCon : MonoBehaviour
                 {
 
                 }*/
-            case ModeSwitching.Impulse:
-                MakeCustomForce();
-                m_Rigidbody.AddForce(m_NewForce, ForceMode.Impulse);
-                break;
+           
         }
 
 
@@ -83,55 +78,136 @@ public class ballCon : MonoBehaviour
          if (endSwingR.GetComponent<endSwing>().reverse == true)
          {
             m_NewForce = new Vector3 (m_ForceX, m_ForceY, 0);
-            m_modeSwitching = ModeSwitching.Impulse;
+            m_modeSwitching = ModeSwitching.Force;
+            StartB.GetComponent<buttionCon>().activeated = false;
             //m_Rigidbody.AddForce(m_NewForce, ForceMode.Force);
          }
-         // begins the swing when the start buttion is used functional
-         if (StartB.GetComponent<buttionCon>().activeated == true)
-         {
+        // begins the swing when the start buttion is used functional
+        if (StartB.GetComponent<buttionCon>().activeated == true)
+        {
+            stop = false;
             m_modeSwitching = ModeSwitching.Force;
-         }
-         //stops the swinging when it hits the next ball
-         if (stopPoint == true)
+        }
+
+        //stops the swinging when it hits the next ball
+        if (endSwingR.GetComponent<endSwing>().reverse == true)
+        {
+            m_NewForce = new Vector3(m_ForceX, m_ForceY, 0);
+            m_modeSwitching = ModeSwitching.Force;
+            // StartB.GetComponent<buttionCon>().activeated = false;
+            //m_Rigidbody.AddForce(m_NewForce, ForceMode.Force);
+        }
+        // begins the swing when the start buttion is used functional
+
+
+        //stops the swinging when it hits the next ball
+        /* if (SP.GetComponent<stoper>().st == true)
          {
              m_modeSwitching = ModeSwitching.Start;
-         }
+             endSwingL.GetComponent<endSwing>().reverse = false;
+         }*/
+        if (stop == true)
+        {
+            m_modeSwitching = ModeSwitching.Start;
+        }
+        else if (stop == false)
+        {
+            m_modeSwitching = ModeSwitching.Force;
+        }
+        /* if (SP.GetComponent<stoper>().st == false)
+         {
+            m_modeSwitching = ModeSwitching.Start;
+            endSwingR.GetComponent<endSwing>().reverse = false;
+         }*/
+
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject == endSwingR)
+        {
+            m_modeSwitching = ModeSwitching.Force;
+        }
+        if (collision.gameObject == stoper)
+        {
+            if (m_modeSwitching == ModeSwitching.Start)
+            {
+                m_ForceX = m_ForceX + 0.3f;
+                m_ForceX = m_ForceX * -1;
+                m_ForceY = m_ForceY + 0.3f;
+                m_ForceY = m_ForceY * -1;
+                stop = false;
+               // m_modeSwitching = ModeSwitching.Force;
+                //   m_modeSwitching = ModeSwitching.Force;
+            }
+            if (m_modeSwitching == ModeSwitching.Force)
+            {
+                m_modeSwitching = ModeSwitching.Start;
+                stop = true;
+             //   m_NewForce = m_NewForce * -1;
+                endSwingR.GetComponent<endSwing>().reverse = false;
+                //   m_modeSwitching = ModeSwitching.Start;
+            }
+        }
+       /* if (collision.gameObject.GetComponent<stoper>().returningBall == true)
+        {
+            m_modeSwitching = ModeSwitching.Force;
+        }*/
+    }
 
-
-    /* void Swing ()
-     {
-         if (m_modeSwitching != ModeSwitching.Start)
+        /* void OnCollisionEnter(Collision collision)
          {
-             m_NewForce = new Vector3(m_ForceX, m_ForceY, 0);
+             if (collision.gameObject.tag == "mid_ball")
+             {
+                 if (m_modeSwitching == ModeSwitching.Force)
+                 {
+                     m_modeSwitching = ModeSwitching.Start;
+                     StartB.GetComponent<buttionCon>().activeated = false;
+
+                 }
+             } if (collision.gameObject.tag == "mid_ball")
+             {
+                 if (m_modeSwitching == ModeSwitching.Start)
+                 {
+                     m_modeSwitching = ModeSwitching.Force;
+                 }
+             }
          }
-         switch (m_modeSwitching)
+         */
+
+
+        /* void Swing ()
          {
-             case ModeSwitching.Start:
-                 transform.position = m_StartPos;
-                 m_Rigidbody.transform.position = m_StartForce;
-                 m_Rigidbody.velocity = new Vector3(0f, 0f, 0f);
-                 break;
+             if (m_modeSwitching != ModeSwitching.Start)
+             {
+                 m_NewForce = new Vector3(m_ForceX, m_ForceY, 0);
+             }
+             switch (m_modeSwitching)
+             {
+                 case ModeSwitching.Start:
+                     transform.position = m_StartPos;
+                     m_Rigidbody.transform.position = m_StartForce;
+                     m_Rigidbody.velocity = new Vector3(0f, 0f, 0f);
+                     break;
 
-             case ModeSwitching.Acceleration:
-                 MakeCustomForce();
-                 m_Rigidbody.AddForce(m_NewForce, ForceMode.Acceleration);
-                 break;
+                 case ModeSwitching.Acceleration:
+                     MakeCustomForce();
+                     m_Rigidbody.AddForce(m_NewForce, ForceMode.Acceleration);
+                     break;
 
-             case ModeSwitching.Force:
-                 MakeCustomForce();
-                 m_Rigidbody.AddForce(m_NewForce, ForceMode.Force);
-                 break;
+                 case ModeSwitching.Force:
+                     MakeCustomForce();
+                     m_Rigidbody.AddForce(m_NewForce, ForceMode.Force);
+                     break;
 
-             case ModeSwitching.Impulse:
-                 MakeCustomForce();
-                 m_Rigidbody.AddForce(m_NewForce, ForceMode.Impulse);
-                 break;
-         }
-     }*/
+                 case ModeSwitching.Impulse:
+                     MakeCustomForce();
+                     m_Rigidbody.AddForce(m_NewForce, ForceMode.Impulse);
+                     break;
+             }
+         }*/
 
-    void OnGUI()
+       /* void OnGUI()
     {
         //Getting the inputs from each text field and storing them as strings
         m_ForceXString = GUI.TextField(new Rect(300, 10, 200, 20), m_ForceXString, 25);
@@ -171,23 +247,23 @@ public class ballCon : MonoBehaviour
             //Switch to velocity changing
             m_modeSwitching = ModeSwitching.VelocityChange;
         }
-    }
+    }*/
 
-    float ConvertToFloat(string name)
+   /* float ConvertToFloat(string name)
     {
         float.TryParse(name, out m_Result);
         return m_Result;
-    }
+    }*/
     void MakeCustomForce()
     {
         if (endSwingR.GetComponent<endSwing>().reverse == false)
         {
-            m_ForceX = ConvertToFloat(m_ForceXString);
-            m_ForceY = ConvertToFloat(m_ForceYString);
+            m_ForceX = X;
+            m_ForceY = Y;
         } else if (endSwingR.GetComponent<endSwing>().reverse == true)
         {
-            m_ForceX = ConvertToFloat(m_ForceXString) * -1;
-            m_ForceY = ConvertToFloat(m_ForceYString) * -1;
+            m_ForceX = X * -1;
+            m_ForceY = Y * -1;
         }
     }
 

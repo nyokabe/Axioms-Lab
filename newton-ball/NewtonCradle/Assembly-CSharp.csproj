@@ -63,8 +63,10 @@
     <Compile Include="Assets\BallConC.cs" />
     <Compile Include="Assets\buttionCon.cs" />
     <Compile Include="Assets\endSwing.cs" />
+    <Compile Include="Assets\reverseBallCon.cs" />
     <Compile Include="Assets\scripts\ballCon.cs" />
     <Compile Include="Assets\scripts\CradleCon.cs" />
+    <Compile Include="Assets\stoper.cs" />
     <None Include="Assets\VRTK\Dependencies\Zinnia.Unity\Dependencies\FodyWeavers.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/ajd21/OneDrive/Documents/GitHub/Axioms-Lab/newton-ball/NewtonCradle/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
