@@ -1,8 +1,10 @@
 the ballcon script correctly moves the ball based on force applyed and considers the mass.
-still need to make it take information for the foces as a buttion instead of a text box.(should be fairly simple)
-still need to make the force change when it interacts with the next ball or the end swing collider.
-also need to make sure the position will not change after it collides.
+still need to make it take information for the forces as a buttion instead of a text box.(should be fairly simple). will set public variables in a empty gameobject with a script and heve the nessecary other scripts access them
+need to stop the last ball from falling to the ground and rolling if the forces decrease to much. (may actually be funny if we handly it right and make a string/wire "break" and play it off as a "technical difficulty")
+may need to adjust the rate the forces decrease between ends.
 
-the if statement for starting the movement based on a bool from the start buttion does work but the controllers don't set the bool to true after collision.
+the collision statement for changeing the bool for the start buttion doesn't seem to work with the "hands" setting the bool to true in editor does work as intended.
+need to create code to alter other 
 
 still need to create an actual cradle (currently just orbs and cubes for testing the scripts).
+will look into if hindge joint(POSSABLY viable)
