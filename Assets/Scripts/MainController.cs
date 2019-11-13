@@ -46,28 +46,28 @@ public class MainController : MonoBehaviour
 
     void Transitions()
     {
-        if (ballDrop = true)
+        if (ballDrop == true)
         {
             levelBallRoll.SetActive(false);
             levelCannon.SetActive(false);
             levelNewton.SetActive(false);
             levelBallDrop.SetActive(true);
         }
-        if (ballRoll = true)
+        if (ballRoll == true)
         {
             levelCannon.SetActive(false);
             levelNewton.SetActive(false);
             levelBallDrop.SetActive(false);
             levelBallRoll.SetActive(true);
         }
-        if (newton = true)
+        if (newton == true)
         {
             levelBallRoll.SetActive(false);
             levelCannon.SetActive(false);
             levelBallDrop.SetActive(false);
             levelNewton.SetActive(true);
         }
-        if (cannon = true)
+        if (cannon == true)
         {
             levelBallRoll.SetActive(false);
             levelNewton.SetActive(false);
@@ -75,21 +75,21 @@ public class MainController : MonoBehaviour
             levelCannon.SetActive(true);
         }
     }
-    Music()
+    void Music()
     {
-        if (cannon = true)
+        if (cannon == true)
         {
 
         }
-        if (newton = true)
+        if (newton == true)
         {
 
         }
-        if (ballRoll = true)
+        if (ballRoll == true)
         {
 
         }
-        if (ballDrop = true)
+        if (ballDrop == true)
         {
 
         }
