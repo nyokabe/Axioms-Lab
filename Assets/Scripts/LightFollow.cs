@@ -6,14 +6,13 @@ public class LightFollow : MonoBehaviour
 {
     Vector3 cameraTargetRotation;
     Vector3 cameraCurrentRotation;
-    Transform playerLocation;
+    Vector3 playerLocation;
     public GameObject Player;
-    Transform player;
-    float speed;
+  
+    float speed = 5;
     // Start is called before the first frame update
     void Start()
     {
-        player = Player.GetComponent(Transform);
     }
 
     // Update is called once per frame
