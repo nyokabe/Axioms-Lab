@@ -19,7 +19,7 @@ public class LightFollow : MonoBehaviour
     void Update()
     {
         playerLocation = Player.transform.position;
-        cameraTargetRotation = playerLocation - transform.position;
+        cameraTargetRotation = (playerLocation - transform.position) - (new Vector3(0,2,0)) ;
         
         float step = speed * Time.deltaTime;
 
