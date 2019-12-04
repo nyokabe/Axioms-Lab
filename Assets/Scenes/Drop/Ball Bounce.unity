@@ -33,24 +33,24 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 2048
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.3191924, g: 0.49346828, b: 0.39843056, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
-    m_EnvironmentLightingMode: 0
+    m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
@@ -2340,6 +2340,8 @@ MonoBehaviour:
   currentHigh: 0
   currentY: 0
   hasHit: 0
+  platform1: {fileID: 0}
+  platformOnOff: 0
 --- !u!135 &131924709
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3874,7 +3876,7 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
-  m_ShadowAngle: 45
+  m_ShadowAngle: 90
 --- !u!4 &294428303
 Transform:
   m_ObjectHideFlags: 0
@@ -4912,6 +4914,11 @@ PrefabInstance:
       propertyPath: elements.Array.data[0]
       value: 
       objectReference: {fileID: 405414544}
+    - target: {fileID: 4714943977382568984, guid: c653ae62cc25a3447b25602aa098c379,
+        type: 3}
+      propertyPath: processInactiveGameObjects
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2308899400092309998, guid: c653ae62cc25a3447b25602aa098c379,
         type: 3}
       propertyPath: elements.Array.size
@@ -4922,11 +4929,6 @@ PrefabInstance:
       propertyPath: elements.Array.data[0]
       value: 
       objectReference: {fileID: 1941168339}
-    - target: {fileID: 4714943977382568984, guid: c653ae62cc25a3447b25602aa098c379,
-        type: 3}
-      propertyPath: processInactiveGameObjects
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c653ae62cc25a3447b25602aa098c379, type: 3}
 --- !u!4 &424140948 stripped
@@ -8756,10 +8758,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 671547190}
     m_Modifications:
-    - target: {fileID: 1068226196861958, guid: 9aa99d00578590e45a52faa205a1014a, type: 3}
-      propertyPath: m_Name
-      value: HeadsetOrigin
-      objectReference: {fileID: 0}
     - target: {fileID: 4952949373149400, guid: 9aa99d00578590e45a52faa205a1014a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8803,6 +8801,10 @@ PrefabInstance:
     - target: {fileID: 4952949373149400, guid: 9aa99d00578590e45a52faa205a1014a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068226196861958, guid: 9aa99d00578590e45a52faa205a1014a, type: 3}
+      propertyPath: m_Name
+      value: HeadsetOrigin
       objectReference: {fileID: 0}
     - target: {fileID: 1392910959889882537, guid: 9aa99d00578590e45a52faa205a1014a,
         type: 3}

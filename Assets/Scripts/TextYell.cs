@@ -9,7 +9,7 @@ public class TextYell : MonoBehaviour
     {
         if (button.Pressed == true)
         {
-            Debug.Log ("WHAT HAVE YOU DONE!\nYOU'VE KILLED US ALL!!");
+            Debug.Log ("You did a thing");
         }
     }
 }
