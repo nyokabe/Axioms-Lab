@@ -1,3 +1,0 @@
-https://developer.oculus.com/quest/?locale=en_US
-https://developer.oculus.com/documentation/quest/latest/concepts/book-unity-gsg/
-https://learn.unity.com/search?k=%5B%22tag%3A5813f57532b30600250d6e0d%22%5D
