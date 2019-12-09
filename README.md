@@ -12,7 +12,9 @@ How do you play?
 There are three levels at the moment.
 
     Ball Drop: bounce a ball and get it to the desired hight. (hints down below)
+
     Pin Ball (Pachinko): launch balls through a series of obstacles in order to reach the other side.
+ 
     Cannon: launch balls with varieing amounts of force in order to knock down all of the obsticles.
     
 Once all the levels are complete you win the game.
