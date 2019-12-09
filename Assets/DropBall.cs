@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DropBall : MonoBehaviour
 {
-    public GameObject Ball;
+    public GameObject Target;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,7 @@ public class DropBall : MonoBehaviour
     {
         if(other.tag=="Green_button(2)")
         {
-            Ball.GetComponent<Highest>().platformOnOff = false;
+            Target.SetActive(true);
         }
     }
 }

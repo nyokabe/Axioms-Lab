@@ -1,14 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class MainControl : MonoBehaviour
 {
+    public CannonWinConditions cwc;
+
     public bool ballDrop;
     public bool ballRoll;
     public bool cannon;
     public bool newton;
     public bool startGame;
+    public bool winDrop;
+    public bool winRoll;
+    public bool winCannon;
+    public bool tM01;
+    public bool tM02;
+    public bool tM03;
+
+    public int Tm;
+    public int Mu;
+
+    public Text winGameTxt;
 
     Material m_Ball01;
     Material m_Ball02;
@@ -20,18 +35,19 @@ public class MainControl : MonoBehaviour
     public GameObject levelCannon;
     public GameObject levelNewton;
     public GameObject startGameLevel;
-    public GameObject ball01;
-    public GameObject ball02;
-    public GameObject ball03;
-    public GameObject ball04;
 
-    AudioSource Startmusic;
-    AudioSource LevelMusic1;
-    AudioSource LevelMusic2;
-    AudioSource TransMusic;
-    AudioSource WinMusic;
-    AudioSource ProfIntro;
-    AudioSource ProfTalk1;
+    public AudioSource Jazzy;
+    public AudioSource AxiomInt;
+    public AudioSource CInt;
+    public AudioSource Cong;
+    public AudioSource BDInt;
+    public AudioSource PachinkoInt;
+    public AudioSource PachinkoWin;
+    public AudioSource Joke01;
+    public AudioSource Joke02;
+    public AudioSource Joke03;
+    public AudioSource Joke04;
+
 
     // Start is called before the first frame update
     void Start()
@@ -41,21 +57,30 @@ public class MainControl : MonoBehaviour
         newton = false;
         cannon = false;
         startGame = true;
+        winRoll = false;
+        winDrop = false;
+        winCannon = false;
+        tM03 = false;
+        tM02 = false;
+        tM01 = false;
 
-        Startmusic = GetComponent<AudioSource>();
-        LevelMusic1 = GetComponent<AudioSource>();
-        LevelMusic2 = GetComponent<AudioSource>();
-        TransMusic = GetComponent<AudioSource>();
-        WinMusic = GetComponent<AudioSource>();
-        ProfIntro = GetComponent<AudioSource>();
-        ProfTalk1 = GetComponent<AudioSource>();
+        winGameTxt.text = "";
+
+        AxiomInt.Play();
+
+        Tm = 0;
+
         Transitions();
+        Music();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Tm = Tm + 1;
         Transitions();
+        Music();
+        WinGame();
     }
 
     void Transitions()
@@ -63,6 +88,7 @@ public class MainControl : MonoBehaviour
         if (startGame == false)
         {
             startGameLevel.SetActive(false);
+            AxiomInt.Play();
         }
         if (ballDrop == false)
         {
@@ -101,22 +127,58 @@ public class MainControl : MonoBehaviour
             levelCannon.SetActive(true);
         }
     }
+    void WinGame()
+    {
+        if ( winCannon == true && winDrop == true && winRoll == true )
+        {
+            winGameTxt.text = "Congratulations, You Win!";
+            Music();
+        }
+    }
     void Music()
     {
-        if (cannon == true)
+        if (cannon == false)
         {
-
+            CInt.Play();
         }
-        if (newton == true)
+        if (ballRoll == false)
         {
-
+            PachinkoInt.Play();
         }
-        if (ballRoll == true)
+        if (ballDrop == false)
         {
-
+            BDInt.Play();
         }
-        if (ballDrop == true)
+        if (winCannon == false)
         {
+            Cong.Play();
+        }
+        if (winDrop == false)
+        {
+            Joke01.Play();
+        }
+        if (winRoll == false)
+        {
+            PachinkoWin.Play();
+        }
+        if (Tm == 8000)
+        {
+            Mu = Random.Range(0,4);
+            if(Mu == 1)
+            {
+                Joke01.Play();
+                Tm = 0;
+            }
+            if(Mu == 2)
+            {
+                Joke02.Play();
+                Tm = 0;
+            }
+            if(Mu == 3)
+            {
+                Joke03.Play();
+                Tm = 0;
+            }
 
         }
     }
@@ -127,6 +189,8 @@ public class MainControl : MonoBehaviour
         newton = false;
         cannon = false;
         ballDrop = true;
+        winDrop = false;
+        Tm = 0;
         Transitions();
     }
     public void SetLevelBallRollActive()
@@ -136,6 +200,8 @@ public class MainControl : MonoBehaviour
         cannon = false;
         ballDrop = false;
         ballRoll = true;
+        winRoll = false;
+        Tm = 0;
         Transitions();
     }
     public void SetLevelNewtonActive()
@@ -145,6 +211,7 @@ public class MainControl : MonoBehaviour
         ballDrop = false;
         ballRoll = false;
         newton = true;
+        Tm = 0;
         Transitions();
     }
     public void SetLevelCannonActive()
@@ -154,7 +221,14 @@ public class MainControl : MonoBehaviour
         ballDrop = false;
         ballRoll = false;
         cannon = true;
+        winCannon = false;
+        Tm = 0;
+        cwc.Points = 0;
         Transitions();
+    }
+    public void Win()
+    {
+        winRoll = true;
     }
 
 }

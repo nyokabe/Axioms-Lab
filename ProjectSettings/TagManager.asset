@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ExcludeTeleport
+  - TeleportIgnore
+  - Cube(8)
+  - Ground
+  - Green_button(2)
+  - Cube(11)
+  - Wall_ramp
+  - ball
+  - Hand
+  - Cannon_Floor
   layers:
   - Default
   - TransparentFX

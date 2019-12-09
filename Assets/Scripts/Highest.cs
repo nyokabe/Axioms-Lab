@@ -13,8 +13,6 @@ public class Highest : MonoBehaviour
     public float currentY;
     public bool hasHit = false;
     private string a;
-    public GameObject platform1;
-    public bool platformOnOff;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +20,6 @@ public class Highest : MonoBehaviour
         highestPosition = 0;
         SetHighText();
         high.text = "Highest Bounce: ";
-        platform1.SetActive(true);
-        platformOnOff = true;
-        Platform();
     }
 
     // Update is called once per frame
@@ -34,7 +29,6 @@ public class Highest : MonoBehaviour
         {
             FindHighest();
         }
-        Platform();
     }
 
     private void SetHighText()
@@ -60,16 +54,5 @@ public class Highest : MonoBehaviour
         if (transform.position.y > highestPosition) highestPosition = transform.position.y;
         a = currentHigh.ToString("F2");
         high.text = "Highest Bounce: " + a;
-    }
-    void Platform()
-    {
-        if (platformOnOff == true)
-        {
-            platform1.SetActive(true);
-        }
-        if (platformOnOff == false)
-        {
-            platform1.SetActive(false);
-        }
     }
 }
